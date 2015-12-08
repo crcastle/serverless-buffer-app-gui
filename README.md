@@ -1,7 +1,7 @@
 # Serverless Buffer App
 ![Screenshot of app front page](http://f.cl.ly/items/1f3c3C152p132P1t1o2Y/Screen%20Shot%202015-12-06%20at%2011.23.23%20PM.png)
 
-Check out a live version of the app (*coming soon*).
+Check out a [live version of the app](https://crcastle.github.io/serverless-buffer-app) (*work in progress*).
 
 or
 
@@ -19,6 +19,7 @@ Use the [setup instructions](#setup) below to make one for yourself.
 
 ## Contributing
 Some changes I'd like to make:
+
 [ ] Use [vue-strap's](https://github.com/yuche/vue-strap) [modal](http://yuche.github.io/vue-strap/#modal).
 I couldn't figure this out so decided to just use the [modal example in Vue.js's documentation](http://vuejs.org/examples/modal.html) and revisit this later.
 
