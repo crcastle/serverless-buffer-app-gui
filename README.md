@@ -17,6 +17,11 @@ Use the [setup instructions](#setup) below to make one for yourself.
 1. do this step
 2. then do this step
 
+## Contributing
+Some changes I'd like to make:
+[ ] Use [vue-strap's](https://github.com/yuche/vue-strap) [modal](http://yuche.github.io/vue-strap/#modal).
+I couldn't figure this out so decided to just use the [modal example in Vue.js's documentation](http://vuejs.org/examples/modal.html) and revisit this later.
+
 ## License
 ##### [ISC License](https://opensource.org/licenses/ISC) (MIT-like, but better)
 Copyright (c) 2015, Chris Castle
