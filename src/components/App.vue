@@ -11,8 +11,8 @@
             <nav>
               <ul class="nav masthead-nav">
                 <li><a v-link="{ path: '/', exact: true }">Home</a></li>
-                <li><a v-link="{ path: '/tweet' }">Schedule<br>a Tweet</a></li>
-                <li><a v-link="{ path: '/scheduled' }">Scheduled<br>Tweets</a></li>
+                <!-- <li><a v-link="{ path: '/tweet' }">Schedule<br>a Tweet</a></li> -->
+                <!-- <li><a v-link="{ path: '/scheduled' }">Scheduled<br>Tweets</a></li> -->
               </ul>
             </nav>
           </div>
