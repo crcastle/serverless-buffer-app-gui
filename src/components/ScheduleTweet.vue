@@ -42,17 +42,13 @@ export default {
   },
 
   methods: {
-    scheduleTweet: function(text, event) {
-      // alert(this.newTweet);
-      // this.newTweet = '';
-      // console.log(event);
-
-      store.test('hi there', 42)
-      // store.scheduleTweet(text, function(error, response) {
-      //   if (error) { console.log('error posting tweet') }
-      //
-      //   console.log('tweet posted')
-      // })
+    scheduleTweet: function(event) {
+      let that = this
+      this.$root.store.createNewScheduledTweet(this.newTweet, function(err, response) {
+        if (err) { console.log('Error creating tweet'); console.log(err); }
+        console.log(response)
+        that.newTweet = ''
+      })
     }
   }
 }

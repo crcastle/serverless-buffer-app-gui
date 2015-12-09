@@ -6,6 +6,7 @@ import Home from './components/Home.vue'
 import ScheduleTweet from './components/ScheduleTweet.vue'
 import TweetView from './components/TweetView.vue'
 
+
 // install plugins
 Vue.use(Router)
 
@@ -38,13 +39,17 @@ router.beforeEach(function () {
 
 // check if user is authenticated on certain pages
 router.beforeEach(function (transition) {
-  // if (transition.to.auth) {
-    // if (isAuthenticated)
+  if (transition.to.auth) {
+    if (router.app.store.user.authenticated) {
       transition.next()
-    // } else {
-      // transition.abort()
-    //}
-  // }
+    } else {
+      // TODO: show error message to user
+      router.app.showError('Sign in required');
+      transition.abort()
+    }
+  } else {
+    transition.next()
+  }
 })
 
 router.redirect({

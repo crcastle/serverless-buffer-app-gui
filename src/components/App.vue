@@ -61,5 +61,40 @@
 </template>
 
 
+<script>
+import Login from './Login.vue'
+import store from './../store'
+
+export default {
+  name: 'App',
+  components: {
+    Login
+  },
+
+  data: () => {
+    return {
+      store: store
+    }
+  },
+
+  methods: {
+    showError(message) {
+      console.log(message)
+    }
+  },
+
+  events: {
+    'logged-in': function(googleUser) {
+      store.user.authenticated = true
+      store.setGoogleUser(googleUser)
+    },
+    'logged-out': function() {
+      store.user.authenticated = false
+    }
+  }
+}
+</script>
+
+
 <style>
 </style>

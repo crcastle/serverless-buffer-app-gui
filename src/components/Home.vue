@@ -16,11 +16,14 @@
     </div>
     <em>No server setup or ongoing administration.<br>An order of magnitude cheaper than an EC2 micro instance!</em><br>
     <a href="https://github.com/crcastle/serverless-buffer-app#readme" class="btn btn-lg btn-default">Learn More</a>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </div>
 </template>
 
 <script>
+export default {
+  name: 'Home'
+}
 </script>
 
 <style>
