@@ -1,7 +1,7 @@
 # Serverless Buffer App
-![Screenshot of app front page](http://f.cl.ly/items/1f3c3C152p132P1t1o2Y/Screen%20Shot%202015-12-06%20at%2011.23.23%20PM.png)
+[![Screenshot of app front page](http://f.cl.ly/items/1f3c3C152p132P1t1o2Y/Screen%20Shot%202015-12-06%20at%2011.23.23%20PM.png)](http://tweet.crc.io)
 
-Check out a [live version of the app](https://crcastle.github.io/serverless-buffer-app) (*work in progress*).
+Check out a [live version of the app](http://tweet.crc.io) (*work in progress*).
 
 or
 
