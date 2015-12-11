@@ -13,6 +13,17 @@
     <!-- Bootstrap core CSS -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Github fork me ribbon! -->
+    <link rel="stylesheet" href="static/css/gh-fork-ribbon.css">
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="gh-fork-ribbon.ie.css">
+    <![endif]-->
+    <style>
+      .github-fork-ribbon {
+        /*background-color: #090;*/
+      }
+    </style>
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
@@ -40,8 +51,12 @@
     <script type="text/javascript" src="static/js/apiGateway-js-sdk/apigClient.js"></script>
   </head>
   <body>
+      <div class="github-fork-ribbon-wrapper right">
+        <div class="github-fork-ribbon">
+            <a href="https://github.com/simonwhitaker/github-fork-ribbon-css">WORK IN-PROGRESS</a>
+        </div>
+      </div>
       <div id="app"></div>
-      <script src="https://apis.google.com/js/platform.js"></script>
       <script src="static/build.js"></script>
   </body>
 </html>
