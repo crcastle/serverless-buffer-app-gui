@@ -5,9 +5,9 @@
               placeholder="What's the happs?"
               v-model="newTweet"
               rows="8" cols="40"></textarea>
-    <input id="datetimepicker" size="16"
-              type="text" v-model="date">
-    <button class="btn btn-primary" id="schedule-tweet" v-on:click="scheduleTweet">Schedule Tweet</button>
+    <input v-bind:disabled="schedulingInProgress"
+           id="datetimepicker" size="16"
+           type="text" v-model="date">
 
 
     <!-- TODO: move modal to App.vue -->
@@ -45,9 +45,6 @@ export default {
   },
 
   computed: {
-    isoDate: function() {
-      return new Date(this.date).toISOString()
-    },
     millisecondsUtcDate: function() {
       return new Date(this.date).valueOf()
     }

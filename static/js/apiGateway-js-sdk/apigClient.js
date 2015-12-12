@@ -91,6 +91,42 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.scheduledTweetPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var scheduledTweetPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/scheduled-tweet').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(scheduledTweetPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.scheduledTweetOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var scheduledTweetOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/scheduled-tweet').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(scheduledTweetOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.tweetPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         

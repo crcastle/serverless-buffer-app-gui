@@ -12,7 +12,51 @@ store.setGoogleUser = (user) => {
   store.googleUser = user
 }
 
-store.createNewScheduledTweet = (text, cb) => {
+store.createNewScheduledTweet = (text, date, cb) => {
+  getAwsClient(function(err, client) {
+    if (err) { cb(err, null); return; }
+
+    // set params for AWS API Gateway request to make tweet
+    var params            = {};
+    var body              = { "operation": "create",
+                              "status": text,
+                              "date": date };
+    var additionalParams  = {};
+
+    // send request to schedule tweet
+    client.scheduledTweetPost(params, body, additionalParams)
+      .then(function(result) {
+        cb(null, result);
+      }).catch(function(result) {
+        console.error('Error scheduling tweet');
+        console.error(result);
+        cb(result, null);
+      });
+  });
+}
+
+store.createNewTweet = (text, cb) => {
+  getAwsClient(function(err, client) {
+    if (err) { cb(err, null); return; }
+
+    // set params for AWS API Gateway request to make tweet
+    var params            = {};
+    var body              = { "operation": "create", "status": text };
+    var additionalParams  = {};
+
+    // send request to make tweet
+    client.tweetPost(params, body, additionalParams)
+      .then(function(result){
+          cb(null, result);
+      }).catch( function(result){
+          console.error('Error posting tweet');
+          console.error(result);
+          cb(result, null);
+      });
+  });
+}
+
+function getAwsClient(cb) {
   var idToken = store.googleUser.getAuthResponse().id_token
   AWS.config.region = 'us-west-2'
   AWS.config.credentials = new AWS.WebIdentityCredentials({
@@ -30,22 +74,6 @@ store.createNewScheduledTweet = (text, cb) => {
         sessionToken: AWS.config.credentials.sessionToken //OPTIONAL: If you are using temporary credentials you must include the session token
         // region: 'eu-west-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
     });
-
-    var params            = {};
-    var body              = { "operation": "create",
-                              "status": text };
-                              // "status": "Hi from Serverless Buffer App. test" + Math.floor(Math.random()*1000000) };
-    var additionalParams  = {};
-
-    apigClient.tweetPost(params, body, additionalParams)
-        .then(function(result){
-            //This is where you would put a success callback
-            cb(null, result)
-        }).catch( function(result){
-            //This is where you would put an error callback
-            console.log('Error posting tweet');
-            console.log(result);
-            cb(result, null)
-        });
+    cb(null, apigClient);
   });
 }
