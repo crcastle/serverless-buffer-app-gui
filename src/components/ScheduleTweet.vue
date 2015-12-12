@@ -87,8 +87,8 @@ export default {
 
 <style>
 textarea {
-  background-color: #ccc;
-  color: #666;
+  background-color: #333;
+  color: #999;
   font-size: 2em;
 }
 
