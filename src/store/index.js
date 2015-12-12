@@ -66,8 +66,12 @@ function getAwsClient(cb) {
   })
 
   AWS.config.credentials.refresh(function(err) {
-    if (err) { console.log('Error getting AWS credentials.'); console.log(err); return; }
-    // console.log(AWS.config.credentials);
+    if (err) {
+      console.error('Error getting AWS credentials.');
+      console.error(err);
+      cb(err, null);
+      return;
+    }
 
     var apigClient = apigClientFactory.newClient({
         accessKey: AWS.config.credentials.accessKeyId,
