@@ -1,6 +1,7 @@
 <template>
   <div>
-    <textarea class="new-tweet"
+    <textarea v-bind:disabled="schedulingInProgress"
+              class="new-tweet"
               autofocus autcomplete="off"
               placeholder="What's the happs?"
               v-model="newTweet"
@@ -8,11 +9,17 @@
     <input v-bind:disabled="schedulingInProgress"
            id="datetimepicker" size="16"
            type="text" v-model="date">
+    <button v-bind:disabled="schedulingInProgress"
+            class="btn btn-primary"
+            id="schedule-tweet"
+            v-on:click="scheduleTweet">
+              <i v-if="schedulingInProgress" class="fa fa-refresh fa-spin"></i>
+              Schedule Tweet</button>
 
 
     <!-- TODO: move modal to App.vue -->
     <!-- use the modal component, pass in the prop -->
-    <modal :show.sync="showModal">
+    <modal v-show:show.sync="showModal">
       <!--
         you can use custom content here to overwrite
         default content
@@ -40,7 +47,8 @@ export default {
       newTweet: '',
       date: null,
       error: null,
-      success: null
+      success: null,
+      schedulingInProgress: false
     }
   },
 
@@ -53,7 +61,9 @@ export default {
   methods: {
     scheduleTweet: function(event) {
       let that = this
+      this.schedulingInProgress = true
       this.$root.store.createNewScheduledTweet(this.newTweet, this.millisecondsUtcDate, function(err, response) {
+        that.schedulingInProgress = false
         if (err) {
           console.error('Error creating tweet');
           console.error(err);
