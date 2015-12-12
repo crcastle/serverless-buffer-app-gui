@@ -1,5 +1,5 @@
 # Serverless Buffer App
-[![Screenshot of app front page](http://f.cl.ly/items/1f3c3C152p132P1t1o2Y/Screen%20Shot%202015-12-06%20at%2011.23.23%20PM.png)](http://tweet.crc.io)
+[![Screenshot of app front page](http://f.cl.ly/items/431C322x1Z1n0k3A2K0j/Screen%20Shot%202015-12-11%20at%209.21.46%20PM.png)](http://tweet.crc.io)
 
 Check out a [live version of the app](http://tweet.crc.io) (*work in progress*).
 
