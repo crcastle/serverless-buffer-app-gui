@@ -6,6 +6,7 @@ import Home from './components/Home.vue'
 import ScheduleTweet from './components/ScheduleTweet.vue'
 import TweetView from './components/TweetView.vue'
 
+Vue.config.debug = true
 
 // install plugins
 Vue.use(Router)

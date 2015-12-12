@@ -1,5 +1,6 @@
 const store = Object.create(null)
 export default store
+
 store.googleUser = null
 store.user = Object.create(null)
 store.user.authenticated = false
