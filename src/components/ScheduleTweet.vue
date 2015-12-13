@@ -8,9 +8,10 @@
               rows="8" cols="40"></textarea>
     <input v-bind:disabled="schedulingInProgress"
            id="datetimepicker" size="16"
-           type="text" v-model="date">
+           data-date-format="mm/dd/yyyy hh:ii"
+           type="text" v-model="date"></input>
     <button v-bind:disabled="schedulingInProgress"
-            class="btn btn-primary"
+            class="btn btn-default btn-lg"
             id="schedule-tweet"
             v-on:click="scheduleTweet">
               <i v-if="schedulingInProgress" class="fa fa-refresh fa-spin"></i>
@@ -72,13 +73,18 @@ export default {
 
         console.info(response)
         that.newTweet = ''
+        that.date = ''
       })
     }
   },
   ready: () => {
     $('#datetimepicker').datetimepicker({
+      autoclose: true,
+      todayBtn: true,
+      todayHighlight: true,
+      pickerPosition: 'top-right',
       showMeridian: true,
-      minuteStep: 15
+      viewSelect: 'decade'
     })
   }
 }
@@ -92,7 +98,29 @@ textarea {
   font-size: 2em;
 }
 
-button.submit {
-  margin: 20px;
+input {
+  text-align: center;
+  background-color: #333;
+  color: #999;
+  font-size: 1.5em;
+  margin-top: 5px;
+}
+
+.datetimepicker {
+  background-color: #eee;
+}
+
+.datetimepicker table tr td,
+.datetimepicker table thead,
+.datetimepicker table tfoot {
+  color: #333;
+}
+
+[class*=" datetimepicker-dropdown-top"]:after {
+  border-top: 6px solid #eee;
+}
+
+button {
+  margin-top: -7px;
 }
 </style>
