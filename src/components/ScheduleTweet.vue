@@ -16,35 +16,17 @@
             v-on:click="scheduleTweet">
               <i v-if="schedulingInProgress" class="fa fa-refresh fa-spin"></i>
               Schedule Tweet</button>
-
-
-    <!-- TODO: move modal to App.vue -->
-    <!-- use the modal component, pass in the prop -->
-    <modal v-show:show.sync="showModal">
-      <!--
-        you can use custom content here to overwrite
-        default content
-      -->
-      <h3 slot="header">custom header</h3>
-    </modal>
 </template>
 
 
 <script>
-// Get modal component to use for error messages from Twitter
-import Modal from './Modal.vue'
 import store from './../store'
 
 export default {
   name: 'ScheduleTweet',
 
-  components: {
-    'modal': Modal
-  },
-
   data () {
     return {
-      showModal: false,
       newTweet: '',
       date: null,
       error: null,

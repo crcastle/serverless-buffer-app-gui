@@ -39,6 +39,15 @@
       </div>
 
     </div>
+
+    <!-- use the modal component, pass in the prop -->
+    <modal v-show:show.sync="showModal">
+      <!--
+        you can use custom content here to overwrite
+        default content
+      -->
+      <h3 slot="header">custom header</h3>
+    </modal>
   </div>
 </template>
 
@@ -46,15 +55,19 @@
 <script>
 import Login from './Login.vue'
 import store from './../store'
+// Get modal component to use for error messages
+import Modal from './Modal.vue'
 
 export default {
   name: 'App',
   components: {
-    Login
+    Login,
+    Modal
   },
 
   data: () => {
     return {
+      showModal: false,
       store: store
     }
   },
