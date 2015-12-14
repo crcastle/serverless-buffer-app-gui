@@ -5,22 +5,24 @@
               autofocus autcomplete="off"
               placeholder="What's the happs?"
               v-model="newTweet"
-              rows="8" cols="40"></textarea>
+              rows="5" cols="40"></textarea>
     <input v-bind:disabled="schedulingInProgress"
            id="datetimepicker" size="16"
            data-date-format="mm/dd/yyyy hh:ii"
            type="text" v-model="date"></input>
-    <button v-bind:disabled="schedulingInProgress"
+    <button v-bind:disabled="buttonDisabled"
             class="btn btn-default btn-lg"
             id="schedule-tweet"
             v-on:click="scheduleTweet">
               <i v-if="schedulingInProgress" class="fa fa-refresh fa-spin"></i>
               Schedule Tweet</button>
+    <span id="characters-left" v-bind:class="{ 'red': isTooLong }">{{charactersLeft}} characters left</span>
 </template>
 
 
 <script>
 import store from './../store'
+import twttr from 'twitter-text'
 
 export default {
   name: 'ScheduleTweet',
@@ -38,6 +40,16 @@ export default {
   computed: {
     millisecondsUtcDate: function() {
       return new Date(this.date).valueOf()
+    },
+    charactersLeft: function() {
+      if (this.newTweet.length == 0) return 140
+      return 140 - twttr.getTweetLength(this.newTweet)
+    },
+    isTooLong: function() {
+      return this.charactersLeft < 0
+    },
+    buttonDisabled: function() {
+      return this.schedulingInProgress || this.isTooLong
     }
   },
 
@@ -105,4 +117,7 @@ input {
 button {
   margin-top: -7px;
 }
+
+#characters-left { color: #ccc; }
+#characters-left.red { color: rgba(220, 78, 65, 1); }
 </style>
