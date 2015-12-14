@@ -11,14 +11,22 @@
             <nav>
               <ul class="nav masthead-nav">
                 <li><a v-link="{ path: '/', exact: true }">Home</a></li>
-                <!-- <li><a v-link="{ path: '/tweet' }">Schedule<br>a Tweet</a></li> -->
-                <!-- <li><a v-link="{ path: '/scheduled' }">Scheduled<br>Tweets</a></li> -->
+                <li><a v-link="{ path: '/tweet' }">Schedule<br>a Tweet</a></li>
+                <li><a v-link="{ path: '/scheduled' }">Scheduled<br>Tweets</a></li>
+                <li><login></login></li>
               </ul>
             </nav>
           </div>
         </div>
 
         <div class="inner cover">
+          <div class="alert alert-danger alert-dismissible" v-if="showError" transition="expand" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" v-on:click="showError = false"><span aria-hidden="true">&times;</span></button>
+            <strong>Error!</strong> {{message}}
+          </div>
+          <div class="alert alert-success" v-if="showSuccess" transition="expand" role="alert">
+            <strong>Success!</strong> {{message}}
+          </div>
           <div>
             <!-- main view -->
             <router-view
@@ -36,45 +44,29 @@
           </div>
         </div>
 
-      </div>
+      </div><!-- cover-container -->
 
-    </div>
-
-    <!-- use the modal component, pass in the prop -->
-    <modal v-show:show.sync="showModal">
-      <!--
-        you can use custom content here to overwrite
-        default content
-      -->
-      <h3 slot="header">custom header</h3>
-    </modal>
-  </div>
+    </div><!-- site-wrapper-innter -->
+  </div><!-- site-wrapper -->
 </template>
 
 
 <script>
 import Login from './Login.vue'
 import store from './../store'
-// Get modal component to use for error messages
-import Modal from './Modal.vue'
 
 export default {
   name: 'App',
   components: {
-    Login,
-    Modal
+    Login
   },
 
   data: () => {
     return {
-      showModal: false,
+      showError: false,
+      showSuccess: false,
+      message: '',
       store: store
-    }
-  },
-
-  methods: {
-    showError(message) {
-      console.log(message)
     }
   },
 
@@ -85,6 +77,22 @@ export default {
     },
     'logged-out': function() {
       store.user.authenticated = false
+    },
+    'error': function(message) {
+      console.error(message)
+      this.message = message
+      this.showError = true
+    },
+    'success': function(message) {
+      console.info(message)
+      this.message = message
+      this.showSuccess = true
+
+      const that = this
+      setTimeout(function() {
+        that.showSuccess = false
+        that.message = ''
+      },3000)
     }
   }
 }
@@ -92,4 +100,19 @@ export default {
 
 
 <style>
+/* always present */
+.expand-transition {
+  transition: all .3s ease;
+  height: 50px;
+  /*padding: 15px;*/
+  /*margin-bottom: 20px;*/
+}
+
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+.expand-enter, .expand-leave {
+  height: 0;
+  /*padding: 0 10px;*/
+  /*opacity: 0;*/
+}
 </style>
