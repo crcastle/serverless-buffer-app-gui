@@ -60,8 +60,9 @@ export default {
       this.$root.store.createNewScheduledTweet(this.newTweet, this.millisecondsUtcDate, function(err, response) {
         that.schedulingInProgress = false
         if (err) {
-          console.error('Error creating tweet');
+          console.error('Error scheduling tweet');
           console.error(err);
+          this.$dispatch('error', 'Tweet was not scheduled.')
           return;
         }
 
