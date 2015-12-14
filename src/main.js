@@ -45,7 +45,7 @@ router.beforeEach(function (transition) {
       transition.next()
     } else {
       // TODO: show error message to user
-      router.app.showError('Sign in required');
+      router.app.$emit('error', 'Sign in required');
       transition.abort()
     }
   } else {
