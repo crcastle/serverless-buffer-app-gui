@@ -44,10 +44,10 @@
           </div>
         </div>
 
-      </div><!-- cover-container -->
+      </div>
 
-    </div><!-- site-wrapper-innter -->
-  </div><!-- site-wrapper -->
+    </div>
+  </div>
 </template>
 
 
