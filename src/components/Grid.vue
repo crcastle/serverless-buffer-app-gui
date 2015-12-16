@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="grid">
     <thead>
       <tr>
         <th v-for="key in columns"
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style>
-table {
+table.grid {
   font-family: Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
   color: #444;
@@ -62,7 +62,7 @@ table {
   background-color: #fff;
 }
 
-th {
+table.grid th {
   background-color: #000;
   color: rgba(255,255,255,0.66);
   cursor: pointer;
@@ -71,24 +71,24 @@ th {
   -user-select: none;
 }
 
-td {
+table.grid td {
   background-color: #f9f9f9;
 }
 
-th, td {
+table.grid th, table.grid td {
   min-width: 120px;
   padding: 10px 20px;
 }
 
-th.active {
+table.grid th.active {
   color: #fff;
 }
 
-th.active .arrow {
+table.grid th.active .arrow {
   opacity: 1;
 }
 
-.arrow {
+table.grid .arrow {
   display: inline-block;
   vertical-align: middle;
   width: 0;
@@ -97,13 +97,13 @@ th.active .arrow {
   opacity: 0.66;
 }
 
-.arrow.asc {
+table.grid .arrow.asc {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-bottom: 4px solid #fff;
 }
 
-.arrow.dsc {
+table.grid .arrow.dsc {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #fff;
