@@ -62,11 +62,12 @@ export default {
         if (err) {
           console.error('Error scheduling tweet');
           console.error(err);
-          this.$dispatch('error', 'Tweet was not scheduled.')
+          that.$dispatch('error', 'Tweet was not scheduled.')
           return;
         }
 
         console.info(response)
+        that.$dispatch('success', 'Tweet scheduled.')
         that.newTweet = ''
         that.date = ''
       })
