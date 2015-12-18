@@ -38,7 +38,7 @@ router.beforeEach(function () {
   window.scrollTo(0, 0)
 })
 
-// check if user is authenticated on certain pages
+// check if user is authenticated on specified pages
 router.beforeEach(function (transition) {
   if (transition.to.auth) {
     if (router.app.store.user.authenticated) {

@@ -5,13 +5,15 @@
 </template>
 
 <script>
-// console.log(gapi)
 export default {
   name: 'Login',
   methods: {
     onSuccess(googleUser) {
       console.log('*** User authenticated successfully')
       this.$dispatch('logged-in', googleUser)
+
+      // FIXME: need to register a way to listen for logouts triggered out of app
+
     },
     onFailure(error) {
       console.log('*** User authentication failed')
