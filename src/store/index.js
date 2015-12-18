@@ -57,6 +57,26 @@ store.createNewTweet = (text, cb) => {
   });
 }
 
+store.getScheduledTweets = (fromDate, toDate, cb) => {
+  getAwsClient(function(err, client) {
+    if (err) { cb(err, null); return; }
+
+    // set params for AWS API Gateway request to make tweet
+    var params            = { "account": "crc", "fromDate": fromDate, "toDate": toDate };
+    var body              = {};
+    var additionalParams  = {};
+
+    client.scheduledTweetGet(params, body, additionalParams)
+      .then(function(result) {
+        cb(null, result);
+      }).catch(function(result) {
+        console.error('Error getting list of scheduled tweets');
+        console.error(result);
+        cb(result, null);
+      });
+  });
+}
+
 function getAwsClient(cb) {
   var idToken = store.googleUser.getAuthResponse().id_token
   AWS.config.region = 'us-west-2'

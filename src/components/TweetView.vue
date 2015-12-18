@@ -22,11 +22,27 @@ export default {
   data: () => {
     return {
       searchQuery: '',
-      gridColumns: ['postOn', 'created', 'text'],
+      gridColumns: ['createdDate', 'postedDate', 'statusText'],
       gridData: [
-        { postOn: 'hi', created: 'bye', text: 'hello'},
-        { postOn: 'yo', created: 'asdf', text: 'lkjh'}
+        { createdDate: 123, postedDate: 'hi', statusText: 'hello'}
       ]
+    }
+  },
+
+  route: {
+    data: (transition) => {
+      let that = this
+      transition.from.router.app.store.getScheduledTweets(1450140500000, 1450141900000, function(err, response) {
+        if (err) {
+          console.error('Error getting scheduled tweets');
+          console.error(err);
+          transition.from.router.app.$emit('error', 'Could not get scheduled tweets.')
+          return;
+        }
+
+        console.info(response)
+        transition.next({ gridData: response.data.Items })
+      })
     }
   }
 }

@@ -91,6 +91,24 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.scheduledTweetGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['toDate', 'fromDate', 'account', 'body'], ['body']);
+        
+        var scheduledTweetGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/scheduled-tweet').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['toDate', 'fromDate', 'account', ]),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(scheduledTweetGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.scheduledTweetPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
