@@ -9,6 +9,7 @@
     <input v-bind:disabled="schedulingInProgress"
            id="datetimepicker" size="16"
            data-date-format="mm/dd/yyyy hh:ii"
+           placeholder="Schedule"
            type="text" v-model="date"></input>
     <button v-bind:disabled="buttonDisabled"
             class="btn btn-default btn-lg"
