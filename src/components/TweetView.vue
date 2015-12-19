@@ -32,7 +32,7 @@ export default {
   route: {
     data: (transition) => {
       let that = this
-      transition.from.router.app.store.getScheduledTweets(1450140500000, 1450141900000, function(err, response) {
+      transition.from.router.app.store.getScheduledTweets(null, null, function(err, response) {
         if (err) {
           console.error('Error getting scheduled tweets');
           console.error(err);
