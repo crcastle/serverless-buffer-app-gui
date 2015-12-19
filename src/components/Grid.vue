@@ -73,6 +73,8 @@ table.grid th {
 
 table.grid td {
   background-color: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
 }
 
 table.grid th, table.grid td {
