@@ -9,6 +9,14 @@ export function fromNow (time) {
   }
 }
 
+export function formatDate(value, separator) {
+  if (typeof value != "number") return value
+
+  separator = (separator) ? separator : " "
+  const d = new Date(value)
+  return d.toLocaleDateString() + separator + d.toLocaleTimeString()
+}
+
 function pluralize(time, label) {
     if (time === 1) {
         return time + label

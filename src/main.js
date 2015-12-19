@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { fromNow } from './filters'
+import { formatDate } from './filters'
 import App from './components/App.vue'
 import Home from './components/Home.vue'
 import ScheduleTweet from './components/ScheduleTweet.vue'
@@ -11,8 +11,8 @@ Vue.config.debug = true
 // install plugins
 Vue.use(Router)
 
-// register filters globally
-Vue.filter('fromNow', fromNow)
+// Register filters globally
+Vue.filter('formatDate', formatDate)
 
 // routing
 var router = new Router({

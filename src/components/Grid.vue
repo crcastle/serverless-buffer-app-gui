@@ -18,7 +18,7 @@
         | filterBy filterKey
         | orderBy sortKey sortOrders[sortKey]">
         <td v-for="key in columns">
-          {{entry[key]}}
+          {{entry[key] | formatDate }}
         </td>
       </tr>
     </tbody>
