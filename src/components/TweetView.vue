@@ -22,9 +22,9 @@ export default {
   data: () => {
     return {
       searchQuery: '',
-      gridColumns: ['createdDate', 'postedDate', 'statusText'],
+      gridColumns: ['modifiedDate', 'postedDate', 'statusText'],
       gridData: [
-        { createdDate: 123, postedDate: 'hi', statusText: 'hello'}
+        
       ]
     }
   },
