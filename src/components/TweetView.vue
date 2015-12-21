@@ -24,20 +24,19 @@ export default {
       searchQuery: '',
       gridColumns: ['modifiedDate', 'postedDate', 'statusText'],
       gridData: [
-        
+
       ]
     }
   },
 
   route: {
     data: (transition) => {
-      let that = this
       transition.from.router.app.store.getScheduledTweets(null, null, function(err, response) {
         if (err) {
-          console.error('Error getting scheduled tweets');
-          console.error(err);
+          console.error('Error getting scheduled tweets')
+          console.error(err)
           transition.from.router.app.$emit('error', 'Could not get scheduled tweets.')
-          return;
+          return
         }
 
         console.info(response)

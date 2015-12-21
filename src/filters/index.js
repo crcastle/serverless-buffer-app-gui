@@ -13,15 +13,16 @@ export function fromNow (time) {
 }
 
 export function formatDate(value, separator) {
-  if (typeof value != "number") return value
+  if (typeof value != 'number') return value
+  if (!separator) separator = ' '
 
   return fromNow(new Date(value))
 }
 
 function pluralize(time, label) {
-    if (time === 1) {
-        return time + label
-    }
+  if (time === 1) {
+    return time + label
+  }
 
-    return time + label + 's';
+  return time + label + 's'
 }

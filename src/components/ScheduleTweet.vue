@@ -22,7 +22,6 @@
 
 
 <script>
-import store from './../store'
 import twttr from 'twitter-text'
 
 export default {
@@ -55,16 +54,16 @@ export default {
   },
 
   methods: {
-    scheduleTweet: function(event) {
+    scheduleTweet: function() {
       let that = this
       this.schedulingInProgress = true
       this.$root.store.createNewScheduledTweet(this.newTweet, this.millisecondsUtcDate, function(err, response) {
         that.schedulingInProgress = false
         if (err) {
-          console.error('Error scheduling tweet');
-          console.error(err);
+          console.error('Error scheduling tweet')
+          console.error(err)
           that.$dispatch('error', 'Tweet was not scheduled.')
-          return;
+          return
         }
 
         console.info(response)

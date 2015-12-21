@@ -30,7 +30,7 @@ export default {
       'theme': 'dark',
       'onsuccess': this.onSuccess,
       'onfailure': this.onFailure
-    });
+    })
   }
 }
 </script>
