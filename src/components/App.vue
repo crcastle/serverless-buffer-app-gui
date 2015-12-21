@@ -74,9 +74,12 @@ export default {
     'logged-in': function(googleUser) {
       store.user.authenticated = true
       store.setGoogleUser(googleUser)
+      this.$emit('success', 'Signed in as ' + googleUser.getBasicProfile().getName())
     },
-    'logged-out': function() {
+    'logged-out': function(error) {
       store.user.authenticated = false
+      console.error(error)
+      this.$emit('error', error)
     },
     'error': function(message) {
       console.error(message)

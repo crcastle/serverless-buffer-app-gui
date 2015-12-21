@@ -17,7 +17,7 @@ export default {
     },
     onFailure(error) {
       console.log('*** User authentication failed')
-      this.$dispatch('logged-out')
+      this.$dispatch('logged-out', error)
     }
   },
 
