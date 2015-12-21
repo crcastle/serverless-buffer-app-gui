@@ -44,8 +44,7 @@ router.beforeEach(function (transition) {
     if (router.app.store.user.authenticated) {
       transition.next()
     } else {
-      // TODO: show error message to user
-      router.app.$emit('error', 'Sign in required');
+      router.app.$emit('error', 'Sign in required to see or schedule new tweets.')
       transition.abort()
     }
   } else {
