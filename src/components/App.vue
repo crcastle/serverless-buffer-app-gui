@@ -22,10 +22,10 @@
         <div class="inner cover">
           <div class="alert alert-danger alert-dismissible" v-if="showError" transition="expand" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close" v-on:click="showError = false"><span aria-hidden="true">&times;</span></button>
-            <strong>Error!</strong> {{message}}
+            <strong>Error!</strong> {{errorMessage}}
           </div>
           <div class="alert alert-success" v-if="showSuccess" transition="expand" role="alert">
-            <strong>Success!</strong> {{message}}
+            <strong>Success!</strong> {{successMessage}}
           </div>
           <div>
             <!-- main view -->
@@ -65,7 +65,8 @@ export default {
     return {
       showError: false,
       showSuccess: false,
-      message: '',
+      errorMessage: '',
+      successMessage: '',
       store: store
     }
   },
@@ -83,18 +84,18 @@ export default {
     },
     'error': function(message) {
       console.error(message)
-      this.message = message
+      this.errorMessage = message
       this.showError = true
     },
     'success': function(message) {
       console.info(message)
-      this.message = message
+      this.successMessage = message
       this.showSuccess = true
 
       const that = this
       setTimeout(function() {
         that.showSuccess = false
-        that.message = ''
+        that.successMessage = ''
       },3000)
     }
   }
