@@ -18,12 +18,7 @@ Use the [setup instructions](#setup) below to make one for yourself.
 2. then do this step
 
 ## Contributing
-Some changes I'd love pull requests for:
-
-- [ ] Use [vue-strap's](https://github.com/yuche/vue-strap) [modal](http://yuche.github.io/vue-strap/#modal).  I was running in to some bugs, so decided to just use the [modal example in Vue.js's documentation](http://vuejs.org/examples/modal.html) and revisit later.
-- [ ] Add a calendar visualization of upcoming scheduled tweets.
-- [ ] Design better way to store login credentials and expose login and tweet functions to Vue child components.  Or generally, a better way to store application state.  Would using [Vuex](http://vuex.vuejs.org) be overkill?
-- [ ] Get rid of jQuery and Bootstrap's JS file to speed up load time and simplify dependency management.
+I'd love your help!  Check out the [open issues](https://github.com/crcastle/serverless-buffer-app-gui/issues) to find something you can help on.
 
 ## License
 ##### [ISC License](https://opensource.org/licenses/ISC) (MIT-like, but better)
