@@ -16,7 +16,8 @@
             id="schedule-tweet"
             v-on:click="scheduleTweet">
               <i v-if="schedulingInProgress" class="fa fa-refresh fa-spin"></i>
-              Schedule Tweet</button>
+              <span v-if="!schedulingInProgress">Schedule Tweet</span>
+              <span v-if="schedulingInProgress">Scheduling...</span></button>
     <span id="characters-left" v-bind:class="{ 'red': isTooLong }">{{charactersLeft}} characters left</span>
 </template>
 
