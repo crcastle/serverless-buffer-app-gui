@@ -19,10 +19,10 @@ Use the [setup instructions](#setup) below to make one for yourself!
 ## Setup
 
 1. Clone this repo and the [serverless-buffer-app-lambda](https://github.com/crcastle/serverless-buffer-app-lambda) repo to your dev machine.  The first one contains all the front-end code.  The second one contains the AWS Lambda function code, which is effectively the server code.
-1. Let's create an IAM user with access only to the AWS services we need.  This is more secure as the IAM user has restricted permissions compared to your primary AWS user.  In general, it's a bad idea to use your primary AWS user's credentials for building apps.
-  1. <img src="http://cl.ly/071Z3E2U3V1q/Screen%20Shot%202015-12-23%20at%204.52.10%20PM.png" alt="AWS Console" style="width: 400px; vertical-align: top;"/>
-  2. <img src="http://cl.ly/2O0C450Q0322/Screen%20Shot%202015-12-23%20at%204.54.15%20PM.png" alt="Drawing" style="width: 400px; vertical-align: top;"/>
-  3. <img src="http://cl.ly/2o0P3x0C0d1k/Screen%20Shot%202015-12-23%20at%204.57.33%20PM.png" alt="Drawing" style="width: 400px; vertical-align: top;"/>
+1. Let's create an IAM user with access only to the AWS services we need.  This is more secure as the IAM user has restricted permissions compared to your primary AWS user.  In general, it's a bad idea to use your primary AWS user's credentials for building apps.  
+<img src="http://cl.ly/071Z3E2U3V1q/Screen%20Shot%202015-12-23%20at%204.52.10%20PM.png" alt="AWS Console" style="width: 400px; vertical-align: top;"/>  
+<img src="http://cl.ly/2O0C450Q0322/Screen%20Shot%202015-12-23%20at%204.54.15%20PM.png" alt="Drawing" style="width: 400px; vertical-align: top;"/>  
+<img src="http://cl.ly/2o0P3x0C0d1k/Screen%20Shot%202015-12-23%20at%204.57.33%20PM.png" alt="Drawing" style="width: 400px; vertical-align: top;"/>
 2. Type `aws configure` on the command line and copy/paste the new user's Access Key ID and Secret Access Key to configure the AWS CLI tool.
   1. <img src="http://cl.ly/350j0q0I4041/Screen%20Shot%202015-12-23%20at%205.02.19%20PM.png" alt="Drawing" style="width: 400px; vertical-align: top;"/>
   2. <img src="http://cl.ly/0H3V2b0q353k/Screen%20Shot%202015-12-23%20at%205.19.57%20PM.png" alt="Drawing" style="width: 400px; vertical-align: top;"/>
