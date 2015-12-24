@@ -7,8 +7,8 @@
     <div id="made-up-of">
       <ul>
         <li><a href="http://vuejs.org"><img class="logo" id="vue" src="/static/img/vuejs.svg" alt="Vue.js"></a><br>Vue.js as a single page app framework.</li>
-        <li><a href="https://aws.amazon.com/s3/"><img class="logo" src="/static/img/s3.svg" alt="AWS S3"></a><br>AWS S3 to serve the single page app.</li>
-        <li><a href="https://aws.amazon.com/lambda/"><img class="logo" src="/static/img/lambda.svg" alt="AWS Lambda"></a><br>AWS Lambda to send tweets to Twitter.</li>
+        <li><a href="https://pages.github.com/"><img class="logo" id="github" src="/static/img/octocat.svg" alt="AWS S3"></a><br>GitHub Pages to serve the single page app.</li>
+        <li><a href="https://aws.amazon.com/lambda/"><img class="logo" src="/static/img/lambda.svg" alt="AWS Lambda"></a><br>AWS Lambda to schedule and send tweets to Twitter.</li>
         <li><a href="https://aws.amazon.com/api-gateway/"><img class="logo" src="/static/img/api-gateway.svg" alt="AWS API Gateway"></a><br>AWS API Gateway to expose AWS Lambda functions over HTTPS.</li>
         <li><a href="https://aws.amazon.com/dynamodb/"><img class="logo" src="/static/img/dynamodb.svg" alt="AWS DynamoDB"></a><br>AWS DynamoDB to store scheduled tweets.</li>
         <li><a href="https://aws.amazon.com/iam/"><img class="logo" id="iam" src="/static/img/iam.svg" alt="AWS IAM"></a><br>AWS IAM (and Google OpenID) so that only I can schedule and post tweets.</li>
@@ -62,6 +62,11 @@ p.lead {
 #made-up-of .logo#vue {
   width: 70px;
 }
+
+#made-up-of .logo#github {
+  width: 60px;
+}
+
 
 a.btn {
   margin: 20px;
