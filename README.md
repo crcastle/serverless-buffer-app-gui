@@ -89,7 +89,7 @@ Use the [setup instructions](#setup) below to make one for yourself!
   2. Configure the first function as shown in the next two screenshots.
   <img src="http://cl.ly/2N1740203i2U/Screen%20Shot%202015-12-23%20at%206.25.28%20PM.png" alt="Skip AWS Lambda blueprint selection" style="width: 400px; vertical-align: top;"/>  
   Generate the ZIP file to upload by running `npm run build` from your cloned copy of the [serverless-buffer-app-lambda](https://github.com/crcastle/serverless-buffer-app-lambda) repo.  It will create a file named `lambda-code.zip`
-  <img src="http://cl.ly/3U3x0R1B1L1D/Screen%20Shot%202015-12-23%20at%207.20.27%20PM.png" alt="Skip AWS Lambda blueprint selection" style="width: 400px; vertical-align: top;"/>
+  <img src="http://cl.ly/3U3x0R1B1L1D/Screen%20Shot%202015-12-23%20at%207.20.27%20PM.png" alt="Skip AWS Lambda blueprint selection" style="max-width: 60%; vertical-align: bottom;"/>
   3. Create and configure the other two in the same way but with the following changes:
     1. scheduledTweetList
       1. Name: `scheduledTweetList`
