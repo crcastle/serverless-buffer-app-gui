@@ -58,6 +58,7 @@ store.getScheduledTweets = (fromDate, toDate, cb) => {
     if (err) { cb(err, null); return }
 
     // set params for AWS API Gateway request to make tweet
+    // TODO: refactor account out to a config file
     var params            = { 'account': 'crc', 'fromDate': fromDate, 'toDate': toDate }
     var body              = {}
     var additionalParams  = {}
@@ -75,8 +76,10 @@ store.getScheduledTweets = (fromDate, toDate, cb) => {
 
 function getAwsClient(cb) {
   var idToken = store.googleUser.getAuthResponse().id_token
+  // TODO: refactor this out to a config file
   AWS.config.region = 'us-west-2'
   AWS.config.credentials = new AWS.WebIdentityCredentials({
+    // TODO: refactor this out to a config file
     RoleArn: 'arn:aws:iam::765429118403:role/serverless-buffer-app',
     WebIdentityToken: idToken
   })
