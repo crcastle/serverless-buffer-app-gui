@@ -120,26 +120,27 @@ Select the policy created in the previous step.  You can search for it by name.
   7. Now we need to enable [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) on these two request methods so that the front-end JavaScript code is allowed to make requests to the API.
     1. Click the `scheduled-tweet` resource on the left.  Then click the `Enable CORS` button.  
     <img src="http://cl.ly/021J1j3Y1u1j/Screen%20Shot%202015-12-24%20at%2012.05.22%20AM.png" alt="Enable CORS" style="max-width: 60%; vertical-align: bottom;"/>
-    2. Configure CORS as shown below.  Note that `x-amz-security-token` needs to be added to the comma-separated list in the `Access-Control-Allow-Headers` field.
+    2. Configure CORS as shown below.  Note that `x-amz-security-token` needs to be added to the comma-separated list in the `Access-Control-Allow-Headers` field.  
     <img src="http://cl.ly/04160R0q3q23/Screen%20Shot%202015-12-24%20at%2012.08.00%20AM.png" alt="Configure CORS" style="max-width: 60%; vertical-align: bottom;"/>  
     You should see all green check marks after confirming these changes as they are being made.
-  8. Deploy a version of the API, creating a stage for it.
+  8. Deploy a version of the API, creating a stage for it.  
     <img src="" alt="Click Deploy" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="" alt="Configure deploy and create stage" style="max-width: 60%; vertical-align: bottom;"/>  
-  9. Download the JavaScript SDK for this deploy.  AWS API Gateway auto-generates the code to make HTTPS request to your API -- including the code to generate the security token for the request.
+  9. Download the JavaScript SDK for this deploy.  AWS API Gateway auto-generates the code to make HTTPS request to your API -- including the code to generate the security token for the request.  
     <img src="" alt="Download JavaScript SDK" style="max-width: 60%; vertical-align: bottom;"/>  
-  10. Extract the folder in this zip into `serverless-buffer-app-gui/static/js/`.
+  10. Extract the folder in this zip into `serverless-buffer-app-gui/static/js/`.  
     <img src="" alt="Enable CORS" style="max-width: 60%; vertical-align: bottom;"/>  
 6. Now we need to create a Google project whose only purpose will be for authentication for the Serverless Buffer App.  This is what will control who is allowed to login.  Only the Google account you specify will be allowed to schedule tweets and see the list of previously scheduled tweets.
-  1. Create a Google project.
-    <img src="" alt="Create Google project" style="max-width: 60%; vertical-align: bottom;"/>  
+  1. Create a Google project.  
+    <img src="" alt="Create Google project" style="max-width: 60%; vertical-align: bottom;"/>
+  2. Add an email address and product name to enable OAuth authentication in this project.  
     <img src="" alt="API Manager" style="max-width: 60%; vertical-align: bottom;"/>  
-    Provide an email address and product name.
-    <img src="" alt="Google OAuth email address and product name" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="" alt="Google OAuth email address and product name" style="max-width: 60%; vertical-align: bottom;"/>
+  3. Setup OAuth and get client ID.  Save the client ID for later.  
     <img src="" alt="Create new credentials" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="" alt="Configure credentials" style="max-width: 60%; vertical-align: bottom;"/>  
-    Save the client ID for later.  Do not save the client secret.
-    <img src="" alt="Save client ID" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="" alt="Save client ID" style="max-width: 60%; vertical-align: bottom;"/>
+  4. Now create an AWS IAM role that will use Google as the authentication provider.  
     <img src="" alt="Create IAM role" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="" alt="Name IAM role" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="" alt="Grant web access to identity providers" style="max-width: 60%; vertical-align: bottom;"/>  
