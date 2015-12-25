@@ -16,7 +16,10 @@ Use the [setup instructions](#setup) below to make one for yourself!
   * Windows: Use [AWS's CLI installer](https://aws.amazon.com/cli/)
 * A Google account
 
-## Setup
+## Setup your own!
+*(instructions not yet complete)*
+
+*Give yourself an 1-2 hours to complete this setup.  It is a long process -- too long, I think.  That is the current reality in this world of stitching AWS services together like this.  In January 2016, I am going to [create a script](https://github.com/crcastle/serverless-buffer-app-gui/issues/16) that will do the bulk of this work.  This will greatly speed up and simplify the setup process.*
 
 1. Clone this repo and the [serverless-buffer-app-lambda](https://github.com/crcastle/serverless-buffer-app-lambda) repo to your dev machine.  The first one contains all the front-end code.  The second one contains the AWS Lambda function code, which is effectively the server code.
 1. Let's create an IAM user with access only to the AWS services we need.  This is more secure as the IAM user has restricted permissions compared to your primary AWS user.  In general, it's a bad idea to use your primary AWS user's credentials for building apps.  
@@ -146,6 +149,8 @@ Select the policy created in the previous step.  You can search for it by name.
     <img src="" alt="Grant web access to identity providers" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="" alt="Choose Google and paste client ID" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="" alt="Restrict to your Google account ID" style="max-width: 60%; vertical-align: bottom;"/>  
+  5. Copy/paste the new role's ARN to the serverless-buffer-app-gui config file.  
+    <img src="" alt="Copy/paste role ARN" style="max-width: 60%; vertical-align: bottom;"/>  
 
 
 ## Contributing
