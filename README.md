@@ -127,30 +127,38 @@ Select the policy created in the previous step.  You can search for it by name.
     <img src="http://cl.ly/04160R0q3q23/Screen%20Shot%202015-12-24%20at%2012.08.00%20AM.png" alt="Configure CORS" style="max-width: 60%; vertical-align: bottom;"/>  
     You should see all green check marks after confirming these changes as they are being made.
   8. Deploy a version of the API, creating a stage for it.  
-    <img src="" alt="Click Deploy" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Configure deploy and create stage" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/3N2k112D0P0w/Screen%20Shot%202015-12-29%20at%209.55.11%20AM.png" alt="Click Deploy" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/1c0v3l002Z10/Screen%20Shot%202015-12-29%20at%2010.01.37%20AM.png" alt="Configure deploy and create stage" style="max-width: 60%; vertical-align: bottom;"/>  
   9. Download the JavaScript SDK for this deploy.  AWS API Gateway auto-generates the code to make HTTPS request to your API -- including the code to generate the security token for the request.  
-    <img src="" alt="Download JavaScript SDK" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/1s3t1G1F1N32/Screen%20Shot%202015-12-29%20at%2010.02.27%20AM.png" alt="Download JavaScript SDK" style="max-width: 60%; vertical-align: bottom;"/>  
   10. Extract the folder in this zip into `serverless-buffer-app-gui/static/js/`.  
-    <img src="" alt="Enable CORS" style="max-width: 60%; vertical-align: bottom;"/>  
-6. Now we need to create a Google project whose only purpose will be for authentication for the Serverless Buffer App.  This is what will control who is allowed to login.  Only the Google account you specify will be allowed to schedule tweets and see the list of previously scheduled tweets.
-  1. Create a Google project.  
-    <img src="" alt="Create Google project" style="max-width: 60%; vertical-align: bottom;"/>
-  2. Add an email address and product name to enable OAuth authentication in this project.  
+    <img src="http://cl.ly/1l2H2P2P3632/Screen%20Shot%202015-12-29%20at%2010.04.32%20AM.png" alt="Install API Gateway SDK" style="max-width: 60%; vertical-align: bottom;"/>  
+6. Now we need to create a Google project whose only purpose will be to authenticate users on the Serverless Buffer App.  This is what will control who is allowed to login.  Only the Google account you specify will be allowed to schedule tweets and see the list of previously scheduled tweets.
+  1. Create a Google project at this URL https://console.developers.google.com/start
+    <img src="http://cl.ly/301B2I1x471u/Screen%20Shot%202015-12-25%20at%2011.39.05%20AM.png" alt="Create Google project" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/1o140T2k051C/Screen%20Shot%202015-12-25%20at%2011.40.04%20AM.png" alt="Create Google project" style="max-width: 60%; vertical-align: bottom;"/>
+  2. Create an OAuth client ID  
+    <img src="http://cl.ly/2S3P3J162m32/Screen%20Shot%202015-12-29%20at%2010.09.23%20AM.png" alt="Create OAuth client ID" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="" alt="API Manager" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Google OAuth email address and product name" style="max-width: 60%; vertical-align: bottom;"/>
-  3. Setup OAuth and get client ID.  Save the client ID for later.  
-    <img src="" alt="Create new credentials" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Configure credentials" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Save client ID" style="max-width: 60%; vertical-align: bottom;"/>
+
+  2. Add an email address and product name to enable OAuth authentication in this project.  
+    <img src="http://cl.ly/273V2F3W2935/Screen%20Shot%202015-12-25%20at%2011.45.17%20AM.png" alt="Click configure consent screen" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/141t3I2x2M0L/Screen%20Shot%202015-12-29%20at%2010.12.43%20AM.png" alt="Google OAuth email address and product name" style="max-width: 60%; vertical-align: bottom;"/>
+  3. Configure OAuth.  Add all the domains from which your app will be hosted (e.g. http://localhost:8080 and http://tweet.crc.io).  Save the client ID you get for later.  
+    <img src="http://cl.ly/1n3f2Y3T1o3y/Screen%20Shot%202015-12-29%20at%2010.16.31%20AM.png" alt="Configure credentials" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/362Z3t2m1F3M/Screen%20Shot%202015-12-29%20at%2010.19.15%20AM.png" alt="Save client ID" style="max-width: 60%; vertical-align: bottom;"/>
   4. Now create an AWS IAM role that will use Google as the authentication provider.  
-    <img src="" alt="Create IAM role" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Name IAM role" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Grant web access to identity providers" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Choose Google and paste client ID" style="max-width: 60%; vertical-align: bottom;"/>  
-    <img src="" alt="Restrict to your Google account ID" style="max-width: 60%; vertical-align: bottom;"/>  
-  5. Copy/paste the new role's ARN to the serverless-buffer-app-gui config file.  
-    <img src="" alt="Copy/paste role ARN" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/001N1S061z10/Screen%20Shot%202015-12-29%20at%2010.21.33%20AM.png" alt="Create IAM role" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/0y3S2i1v0420/Screen%20Shot%202015-12-29%20at%2010.22.36%20AM.png" alt="Name IAM role" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/14142Y032V0O/Screen%20Shot%202015-12-29%20at%2010.23.49%20AM.png" alt="Grant web access to identity providers" style="max-width: 60%; vertical-align: bottom;"/>  
+    Choose Google and paste in the client ID you got from Google.  
+    <img src="http://cl.ly/0f423h093N0A/Screen%20Shot%202015-12-29%20at%2010.33.21%20AM.png" alt="Choose Google and paste client ID" style="max-width: 60%; vertical-align: bottom;"/>
+  5. Now let's restrict login to only your Google account.  Get your Google ID by going to https://plus.google.com and clicking `Profile`.  Your Google ID is the number in the URL.
+    <img src="http://cl.ly/230n390L1j1f/Screen%20Shot%202015-12-29%20at%2010.34.58%20AM.png" alt="Get Google account ID" style="max-width: 60%; vertical-align: bottom;"/>  
+    <img src="http://cl.ly/200E2q0S2j31/Screen%20Shot%202015-12-29%20at%2010.36.19%20AM.png" alt="Restrict to your Google account ID" style="max-width: 60%; vertical-align: bottom;"/>  
+  6. Click Next on the following two screens.
+  5. Copy/paste the new role's ARN to the serverless-buffer-app-gui config file and finish creating the role.  
+    <img src="http://cl.ly/0h221n013K1l/Screen%20Shot%202015-12-29%20at%2010.38.23%20AM.png" alt="Copy/paste role ARN" style="max-width: 60%; vertical-align: bottom;"/>  
 
 
 ## Contributing
