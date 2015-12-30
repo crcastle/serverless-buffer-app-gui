@@ -7,6 +7,8 @@ or
 
 Use the [setup instructions](#setup) below to make one for yourself!
 
+[![ghit.me](https://ghit.me/badge.svg?repo=crcastle/serverless-buffer-app-gui)](https://ghit.me/repo/crcastle/serverless-buffer-app-gui)
+
 ## Requirements
 * An [Amazon Web Services](https://aws.amazon.com/) account
 * [Node.js and NPM](https://nodejs.org/en/download/)
@@ -157,7 +159,7 @@ Select the policy created in the previous step.  You can search for it by name.
     <img src="http://cl.ly/230n390L1j1f/Screen%20Shot%202015-12-29%20at%2010.34.58%20AM.png" alt="Get Google account ID" style="max-width: 60%; vertical-align: bottom;"/>  
     <img src="http://cl.ly/200E2q0S2j31/Screen%20Shot%202015-12-29%20at%2010.36.19%20AM.png" alt="Restrict to your Google account ID" style="max-width: 60%; vertical-align: bottom;"/>  
   6. Click Next on the following two screens.
-  5. Copy/paste the new role's ARN to the serverless-buffer-app-gui config file and finish creating the role.  
+  5. Copy/paste the new role's ARN to the serverless-buffer-app-gui config file and finish creating the role. (TODO: update path of config file)  
     <img src="http://cl.ly/0h221n013K1l/Screen%20Shot%202015-12-29%20at%2010.38.23%20AM.png" alt="Copy/paste role ARN" style="max-width: 60%; vertical-align: bottom;"/>  
 
 
